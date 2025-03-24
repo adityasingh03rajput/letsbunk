@@ -16,8 +16,8 @@ client_socket.connect((HOST, PORT))
 def update_table(data):
     for row in tree.get_children():
         tree.delete(row)
-    for username, status in data.items():
-        tree.insert("", "end", values=(username, "P" if status == "present" else "A"))
+    for username in data:
+        tree.insert("", "end", values=(username, "Present"))
 
 # Function to handle incoming messages from the server
 def receive_messages():
